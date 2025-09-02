@@ -10,3 +10,21 @@ describe "categorias" {
 	}
 
 }
+
+describe "bonos resultado" {
+	method initialize() {
+		pepe.categoria(cadete)
+	}
+	test "resultado nulo" {
+		pepe.bonoResultado(resultadoNulo)
+		assert.equals(0, pepe.extraPorResultado())
+	}
+	test "resultado porcentual" {
+		pepe.bonoResultado(resultadoPorcentual)
+		assert.equals(2000, pepe.extraPorResultado())
+	}
+	test "resultado fijo" {
+		pepe.bonoResultado(resultadoFijo)
+		assert.equals(800, pepe.extraPorResultado())
+	}
+}
