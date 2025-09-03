@@ -1,0 +1,65 @@
+import pepe.*
+import bonus.*
+
+describe  "sofia" {
+    
+    test "sueldo de Sofia" {
+        sofia.categoria(cadete)
+        sofia.bonoResultado(resultadoPorcentual)
+        assert.equals(26000, sofia.sueldoNeto())
+        assert.equals(28600, sofia.sueldo())
+    }
+
+}
+describe "categorias" {
+    test "vendedor" {
+        pepe.categoria(vendedor)
+        vendedor.activarAumentoPorMuchasVentas()
+        assert.equals(20000, pepe.sueldoNeto())
+        vendedor.desactivarAumentoPorMuchasVentas()
+    }
+        
+    test "medio tiempo" {
+        medioTiempo.categoriaBase(cadete)
+        pepe.categoria(medioTiempo)
+        assert.equals(10000, pepe.sueldoNeto())
+        medioTiempo.categoriaBase(gerente)
+        assert.equals(7500, pepe.sueldoNeto())
+        
+        
+    }
+}
+describe "roque y ernesto" {
+    test "roque sueldo" {
+        roque.bonoResultado(resultadoPorcentual)
+        assert.equals(28000, roque.sueldoNeto())
+        assert.equals(39800, roque.sueldo())
+    }
+
+    test "ernesto sueldo" {
+        pepe.categoria(cadete)
+        ernesto.compañero(pepe)
+        ernesto.bonoPresentismo(presentismoNormal)
+        assert.equals(20000, ernesto.sueldoNeto())
+        assert.equals(22000, ernesto.sueldo())
+    }
+
+    test "bonus, casos de pruebas completos" {
+        medioTiempo.categoriaBase(cadete)
+        pepe.categoria(medioTiempo)
+        pepe.bonoResultado(resultadoPorcentual)
+        pepe.bonoPresentismo(presentismoDemagogico)
+        pepe.faltas(1)
+
+        roque.bonoResultado(resultadoFijo)
+
+        ernesto.compañero(pepe)
+        ernesto.bonoPresentismo(presentismoAjuste)
+
+        assert.equals(11500, pepe.sueldo())
+        assert.equals(37800, roque.sueldo())
+        assert.equals(10100, ernesto.sueldo())
+        
+    }
+}
+

@@ -1,10 +1,86 @@
 import pepe.*
 
-describe "Sueldo Pepe" {
-	
-	test "Test 1" {
-		//TODO: Implementame
+describe "categorias" {
+	test "sueldo neto"{
+		pepe.categoria(cadete)
+		assert.equals(20000, pepe.sueldoNeto())
+		pepe.categoria(gerente)
+		assert.equals(15000, pepe.sueldoNeto())
+
 	}
 
+}
+
+describe "bonos resultado" {
+	method initialize() {
+		pepe.categoria(cadete)
+	}
+	test "resultado nulo" {
+		pepe.bonoResultado(resultadoNulo)
+		assert.equals(0, pepe.extraPorResultado())
+	}
+	test "resultado porcentual" {
+		pepe.bonoResultado(resultadoPorcentual)
+		assert.equals(2000, pepe.extraPorResultado())
+	}
+	test "resultado fijo" {
+		pepe.bonoResultado(resultadoFijo)
+		assert.equals(800, pepe.extraPorResultado())
+	}
+}
+
+describe "bonos presentismo" {
+	method initialize() {
+		pepe.categoria(cadete)
+	}
+	test "presentismo nulo" {
+		pepe.bonoPresentismo(presentismoNulo)
+		assert.equals(0, pepe.extraPorPresentismo())
+	}
+	test "presentismo normal" {
+		pepe.bonoPresentismo(presentismoNormal)
+		pepe.faltas(0)
+		assert.equals(2000, pepe.extraPorPresentismo())
+		pepe.faltas(1)
+		assert.equals(1000, pepe.extraPorPresentismo())
+		pepe.faltas(2)
+		assert.equals(0, pepe.extraPorPresentismo())
+	}
+	test "presentismo demagogico" {
+		pepe.bonoPresentismo(presentismoDemagogico)
+		assert.equals(300, pepe.extraPorPresentismo())
+		pepe.categoria(gerente)
+		assert.equals(500, pepe.extraPorPresentismo())
+	}
+}
+describe "casos de prueba sueldo de pepe (completos)" {
 	
+
+
+	test "sueldo para cadete, monto fijo y presentismo normal" {
+		pepe.categoria(cadete)
+		pepe.bonoResultado(resultadoFijo)
+		pepe.bonoPresentismo(presentismoNormal)
+		pepe.faltas(3)
+
+		assert.equals(20800, pepe.sueldo())
+	}
+
+	test "sueldo para gerente, bono porcentual, presentismo nulo" {
+		pepe.categoria(gerente)
+		pepe.bonoResultado(resultadoPorcentual)
+		pepe.bonoPresentismo(presentismoNulo)
+		assert.equals(16500, pepe.sueldo())
+	}
+
+	test "sueldo para cadete, bono porcentual, presentismo normal" {
+		pepe.categoria(cadete)
+		pepe.bonoResultado(resultadoPorcentual)
+		pepe.bonoPresentismo(presentismoNormal)
+		assert.equals(24000, pepe.sueldo())
+		pepe.faltas(1)
+		assert.equals(23000, pepe.sueldo())
+	}
+
+
 }
