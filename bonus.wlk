@@ -29,6 +29,24 @@ object roque {
     }
 }
 
+object ernesto {
+    var property bonoPresentismo = presentismoNulo
+    var property compañero = roque
+    
+    method faltas() {
+        return 0
+    }
+    method sueldoNeto() {
+        return compañero.sueldoNeto()
+    }
+    method extraPresentismo() {
+        return bonoPresentismo.valor(self)
+    }
+    method sueldo() {
+        return self.sueldoNeto() + self.extraPresentismo()
+    }
+}
+
 //categorias
 
 object vendedor {
@@ -49,4 +67,5 @@ object medioTiempo {
         return categoriaBase.neto() / 2
     }
 }
+
 

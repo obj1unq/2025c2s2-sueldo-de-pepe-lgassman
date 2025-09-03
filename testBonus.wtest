@@ -37,3 +37,14 @@ describe "roque" {
     }
 
 }
+
+describe "ernesto" {
+    test "roque sueldo" {
+        pepe.categoria(cadete)
+        ernesto.compañero(pepe)
+        ernesto.bonoPresentismo(presentismoNormal)
+        assert.equals(20000, ernesto.sueldoNeto())
+        assert.equals(22000, ernesto.sueldo())
+    }
+
+}
