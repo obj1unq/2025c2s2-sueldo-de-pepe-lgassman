@@ -75,3 +75,9 @@ object presentismoDemagogico {
     }
 }
 
+object presentismoAjuste {
+    method valor(empleado) {
+        return if (empleado.faltas() > 0) 0 else 100
+    }
+}
+

@@ -29,17 +29,14 @@ describe "categorias" {
         
     }
 }
-describe "roque" {
+describe "roque y ernesto" {
     test "roque sueldo" {
         roque.bonoResultado(resultadoPorcentual)
         assert.equals(28000, roque.sueldoNeto())
         assert.equals(39800, roque.sueldo())
     }
 
-}
-
-describe "ernesto" {
-    test "roque sueldo" {
+    test "ernesto sueldo" {
         pepe.categoria(cadete)
         ernesto.compañero(pepe)
         ernesto.bonoPresentismo(presentismoNormal)
@@ -47,4 +44,22 @@ describe "ernesto" {
         assert.equals(22000, ernesto.sueldo())
     }
 
+    test "bonus, casos de pruebas completos" {
+        medioTiempo.categoriaBase(cadete)
+        pepe.categoria(medioTiempo)
+        pepe.bonoResultado(resultadoPorcentual)
+        pepe.bonoPresentismo(presentismoDemagogico)
+        pepe.faltas(1)
+
+        roque.bonoResultado(resultadoFijo)
+
+        ernesto.compañero(pepe)
+        ernesto.bonoPresentismo(presentismoAjuste)
+
+        assert.equals(11500, pepe.sueldo())
+        assert.equals(37800, roque.sueldo())
+        assert.equals(10100, ernesto.sueldo())
+        
+    }
 }
+
