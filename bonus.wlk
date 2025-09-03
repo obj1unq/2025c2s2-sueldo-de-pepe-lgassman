@@ -30,4 +30,10 @@ object vendedor {
         aumento = false
     }
 }
+object medioTiempo {
+    var property categoriaBase = cadete
+    method neto() {
+        return categoriaBase.neto() / 2
+    }
+}
 

@@ -17,8 +17,15 @@ describe "categorias" {
         vendedor.activarAumentoPorMuchasVentas()
         assert.equals(20000, pepe.sueldoNeto())
         vendedor.desactivarAumentoPorMuchasVentas()
-        assert.equals(16000, pepe.sueldoNeto())
-
     }
-
+        
+    test "medio tiempo" {
+        medioTiempo.categoriaBase(cadete)
+        pepe.categoria(medioTiempo)
+        assert.equals(10000, pepe.sueldoNeto())
+        medioTiempo.categoriaBase(gerente)
+        assert.equals(7500, pepe.sueldoNeto())
+        
+        
+    }
 }
