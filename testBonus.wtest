@@ -29,3 +29,11 @@ describe "categorias" {
         
     }
 }
+describe "roque" {
+    test "roque sueldo" {
+        roque.bonoResultado(resultadoPorcentual)
+        assert.equals(28000, roque.sueldoNeto())
+        assert.equals(39800, roque.sueldo())
+    }
+
+}

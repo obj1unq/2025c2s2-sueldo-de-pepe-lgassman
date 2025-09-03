@@ -16,6 +16,19 @@ object sofia {
  
 }
 
+object roque {
+    var property bonoResultado = resultadoNulo
+    method sueldoNeto() {
+        return 28000
+    }
+    method extraResultado() {
+        return bonoResultado.valor(self)
+    }
+    method sueldo() {
+        return self.sueldoNeto() + self.extraResultado() + 9000
+    }
+}
+
 //categorias
 
 object vendedor {
