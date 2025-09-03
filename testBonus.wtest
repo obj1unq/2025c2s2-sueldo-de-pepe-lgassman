@@ -8,6 +8,16 @@ describe  "sofia" {
         sofia.bonoResultado(resultadoPorcentual)
         assert.equals(26000, sofia.sueldoNeto())
         assert.equals(28600, sofia.sueldo())
+    }
+
+}
+describe "categorias" {
+    test "vendedor" {
+        pepe.categoria(vendedor)
+        vendedor.activarAumentoPorMuchasVentas()
+        assert.equals(20000, pepe.sueldoNeto())
+        vendedor.desactivarAumentoPorMuchasVentas()
+        assert.equals(16000, pepe.sueldoNeto())
 
     }
 

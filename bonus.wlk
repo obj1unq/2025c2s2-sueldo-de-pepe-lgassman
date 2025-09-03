@@ -15,3 +15,19 @@ object sofia {
     }
  
 }
+
+//categorias
+
+object vendedor {
+    var aumento = false
+    method neto() {
+        return 16000 * (1 + (if (aumento) 0.25 else 0))
+    }
+    method activarAumentoPorMuchasVentas() {
+        aumento = true
+    }
+    method desactivarAumentoPorMuchasVentas() {
+        aumento = false
+    }
+}
+
