@@ -1,0 +1,14 @@
+import pepe.*
+import bonus.*
+
+describe  "sofia" {
+    
+    test "sueldo de Sofia" {
+        sofia.categoria(cadete)
+        sofia.bonoResultado(resultadoPorcentual)
+        assert.equals(26000, sofia.sueldoNeto())
+        assert.equals(28600, sofia.sueldo())
+
+    }
+
+}
